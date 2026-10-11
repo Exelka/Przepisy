@@ -9,6 +9,27 @@
                 <ResourceDictionary Source="Resources/Styles.xaml"/>
                 <ResourceDictionary Source="Resources/CardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="WindowForegroundBrush" Color="#FF1E1E1E"/>
+            <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#FF2E7D32"/>
+            <SolidColorBrush x:Key="ToolbarBackgroundBrush" Color="#FFF5F5F5"/>
+            <SolidColorBrush x:Key="InputBackgroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="InputForegroundBrush" Color="#FF1E1E1E"/>
+            <SolidColorBrush x:Key="InputBorderBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="ButtonForegroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="ButtonHoverBrush" Color="#FF388E3C"/>
+            <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="CardBorderBrush" Color="#FFE0E0E0"/>
+            <SolidColorBrush x:Key="CardHoverBorderBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="CardTitleBrush" Color="#FF2E7D32"/>
+            <SolidColorBrush x:Key="CardTextBrush" Color="#FF666666"/>
+            <SolidColorBrush x:Key="CardTimeBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="BadgeBackgroundBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="DifficultyEasyBrush" Color="#FF4CAF50"/>
+            <SolidColorBrush x:Key="DifficultyMediumBrush" Color="#FFFF9800"/>
+            <SolidColorBrush x:Key="DifficultyHardBrush" Color="#FFF44336"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

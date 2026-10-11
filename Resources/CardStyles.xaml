@@ -38,23 +38,23 @@
     </Style>
 
     <Style x:Key="CategoryBadge" TargetType="Border">
-        <Setter Property="Background" Value="#FF4CAF50"/>
+        <Setter Property="Background" Value="{DynamicResource BadgeBackgroundBrush}"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="8,3"/>
         <Setter Property="Margin" Value="0,0,0,5"/>
     </Style>
 
     <Style x:Key="DifficultyBadge" TargetType="Border">
-        <Setter Property="Background" Value="#FFFF9800"/>
+        <Setter Property="Background" Value="{DynamicResource DifficultyMediumBrush}"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="8,3"/>
         <Setter Property="Margin" Value="0,0,0,5"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Trudnosc}" Value="Łatwy">
-                <Setter Property="Background" Value="#FF4CAF50"/>
+                <Setter Property="Background" Value="{DynamicResource DifficultyEasyBrush}"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding Trudnosc}" Value="Trudny">
-                <Setter Property="Background" Value="#FFF44336"/>
+                <Setter Property="Background" Value="{DynamicResource DifficultyHardBrush}"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>

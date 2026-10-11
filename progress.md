@@ -19,6 +19,8 @@ Książka kucharska (WPF, C#, MVVM, język PL).
 - Sortowanie (Nazwa, Czas, Trudność, Kategoria)
 - Walidacja pól (nazwa, składniki, czas)
 - Stylowanie (Styles.xaml, CardStyles.xaml, Animations.xaml)
+- Ciemny motyw (przełączanie motywu, kolory jako DynamicResource)
+- Własne szablony ComboBox i TabControl (poprawne kolory w ciemnym motywie)
 - Animacje (hover na kartach)
 - Kompilacja bez błędów i ostrzeżeń
 
@@ -26,9 +28,9 @@ Książka kucharska (WPF, C#, MVVM, język PL).
 - Commit 1: Dodanie struktury projektu i modeli danych
 - Commit 2: Dodanie okna edycji i potwierdzenia usunięcia
 - Commit 3: Dodanie wyszukiwania, filtrowania, sortowania i MVVM
+- Commit 4: Dodanie ciemnego motywu
 
-## Pozostałe commity (2):
-1. Dodanie ciemnego motywu i animacji
-2. Dodanie README i finalizacja
+## Pozostałe commity (1):
+1. Dodanie README i finalizacja
 
-## Status: W trakcie (pozostały 2 commity)
+## Status: W trakcie (pozostał 1 commit)

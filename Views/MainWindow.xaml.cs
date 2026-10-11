@@ -2,6 +2,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Przepisy.Models;
 using Przepisy.ViewModels;
 
@@ -10,7 +11,6 @@ namespace Przepisy.Views
     public partial class MainWindow : Window
     {
         private readonly MainViewModel _viewModel;
-        private ResourceDictionary _darkDictionary;
         private bool _isDarkTheme;
 
         public MainWindow()
@@ -71,24 +71,64 @@ namespace Przepisy.Views
         private void ThemeToggle_Click(object sender, RoutedEventArgs e)
         {
             _isDarkTheme = !_isDarkTheme;
+            ApplyTheme(_isDarkTheme);
+            ThemeToggleButton.Content = _isDarkTheme ? "Jasny motyw" : "Ciemny motyw";
+        }
 
-            if (_isDarkTheme)
+        private void ApplyTheme(bool dark)
+        {
+            if (dark)
             {
-                _darkDictionary = new ResourceDictionary
-                {
-                    Source = new Uri("Resources/DarkTheme.xaml", UriKind.Relative)
-                };
-                Application.Current.Resources.MergedDictionaries.Add(_darkDictionary);
-                ThemeToggleButton.Content = "Jasny motyw";
+                SetBrush("WindowBackgroundBrush", "#FF1E1E1E");
+                SetBrush("WindowForegroundBrush", "#FFFFFFFF");
+                SetBrush("HeaderBackgroundBrush", "#FF1B5E20");
+                SetBrush("ToolbarBackgroundBrush", "#FF252525");
+                SetBrush("InputBackgroundBrush", "#FF2D2D2D");
+                SetBrush("InputForegroundBrush", "#FFFFFFFF");
+                SetBrush("InputBorderBrush", "#FF444444");
+                SetBrush("ButtonBackgroundBrush", "#FF388E3C");
+                SetBrush("ButtonForegroundBrush", "#FFFFFFFF");
+                SetBrush("ButtonHoverBrush", "#FF4CAF50");
+                SetBrush("CardBackgroundBrush", "#FF2D2D2D");
+                SetBrush("CardBorderBrush", "#FF444444");
+                SetBrush("CardHoverBorderBrush", "#FF81C784");
+                SetBrush("CardTitleBrush", "#FF81C784");
+                SetBrush("CardTextBrush", "#FFB0B0B0");
+                SetBrush("CardTimeBrush", "#FF81C784");
+                SetBrush("BadgeBackgroundBrush", "#FF388E3C");
+                SetBrush("DifficultyEasyBrush", "#FF388E3C");
+                SetBrush("DifficultyMediumBrush", "#FFB26A00");
+                SetBrush("DifficultyHardBrush", "#FFC62828");
             }
             else
             {
-                if (_darkDictionary != null)
-                {
-                    Application.Current.Resources.MergedDictionaries.Remove(_darkDictionary);
-                }
-                ThemeToggleButton.Content = "Ciemny motyw";
+                SetBrush("WindowBackgroundBrush", "#FFFFFFFF");
+                SetBrush("WindowForegroundBrush", "#FF1E1E1E");
+                SetBrush("HeaderBackgroundBrush", "#FF2E7D32");
+                SetBrush("ToolbarBackgroundBrush", "#FFF5F5F5");
+                SetBrush("InputBackgroundBrush", "#FFFFFFFF");
+                SetBrush("InputForegroundBrush", "#FF1E1E1E");
+                SetBrush("InputBorderBrush", "#FF4CAF50");
+                SetBrush("ButtonBackgroundBrush", "#FF4CAF50");
+                SetBrush("ButtonForegroundBrush", "#FFFFFFFF");
+                SetBrush("ButtonHoverBrush", "#FF388E3C");
+                SetBrush("CardBackgroundBrush", "#FFFFFFFF");
+                SetBrush("CardBorderBrush", "#FFE0E0E0");
+                SetBrush("CardHoverBorderBrush", "#FF4CAF50");
+                SetBrush("CardTitleBrush", "#FF2E7D32");
+                SetBrush("CardTextBrush", "#FF666666");
+                SetBrush("CardTimeBrush", "#FF4CAF50");
+                SetBrush("BadgeBackgroundBrush", "#FF4CAF50");
+                SetBrush("DifficultyEasyBrush", "#FF4CAF50");
+                SetBrush("DifficultyMediumBrush", "#FFFF9800");
+                SetBrush("DifficultyHardBrush", "#FFF44336");
             }
+        }
+
+        private void SetBrush(string key, string color)
+        {
+            var newColor = (Color)ColorConverter.ConvertFromString(color);
+            Application.Current.Resources[key] = new SolidColorBrush(newColor);
         }
     }
 }

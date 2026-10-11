@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Dodaj/Edytuj przepis" Height="500" Width="500"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource WindowForegroundBrush}">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,7 +24,7 @@
         <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Recipe.Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Kategoria:" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" IsEditable="True" ItemsSource="{Binding Categories}" SelectedItem="{Binding Recipe.Kategoria}"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" ItemsSource="{Binding Categories}" SelectedItem="{Binding Recipe.Kategoria}"/>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Czas (min):" VerticalAlignment="Center" Margin="5"/>
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="CzasBox" Margin="5"/>
