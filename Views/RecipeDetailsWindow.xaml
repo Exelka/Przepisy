@@ -1,0 +1,45 @@
+<Window x:Class="Przepisy.Views.RecipeDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Szczegóły przepisu" Height="500" Width="500"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Nazwa}" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" Foreground="#FF2E7D32"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Kategoria: " FontWeight="Bold"/>
+            <TextBlock Text="{Binding Kategoria}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Czas: " FontWeight="Bold"/>
+            <TextBlock Text="{Binding CzasPrzygotowania}"/>
+            <TextBlock Text=" min"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Trudność: " FontWeight="Bold"/>
+            <TextBlock Text="{Binding Trudnosc}"/>
+        </StackPanel>
+
+        <TabControl Grid.Row="4">
+            <TabItem Header="Składniki">
+                <TextBox Text="{Binding Skladniki}" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
+            </TabItem>
+            <TabItem Header="Instrukcje">
+                <TextBox Text="{Binding Instrukcje}" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
+            </TabItem>
+        </TabControl>
+
+        <Button Grid.Row="5" Content="Zamknij" Click="Zamknij_Click" Width="80" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

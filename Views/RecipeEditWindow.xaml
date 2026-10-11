@@ -19,32 +19,22 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa:" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Grid.Row="0" Grid.Column="1" x:Name="NazwaBox" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Recipe.Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Kategoria:" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox Grid.Row="1" Grid.Column="1" x:Name="KategoriaBox" Margin="5" IsEditable="True">
-            <ComboBoxItem>Śniadanie</ComboBoxItem>
-            <ComboBoxItem>Obiad</ComboBoxItem>
-            <ComboBoxItem>Kolacja</ComboBoxItem>
-            <ComboBoxItem>Deser</ComboBoxItem>
-            <ComboBoxItem>Przekąska</ComboBoxItem>
-        </ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" IsEditable="True" ItemsSource="{Binding Categories}" SelectedItem="{Binding Recipe.Kategoria}"/>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Czas (min):" VerticalAlignment="Center" Margin="5"/>
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="CzasBox" Margin="5"/>
 
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Trudność:" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="TrudnoscBox" Margin="5">
-            <ComboBoxItem>Łatwy</ComboBoxItem>
-            <ComboBoxItem>Średni</ComboBoxItem>
-            <ComboBoxItem>Trudny</ComboBoxItem>
-        </ComboBox>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="5" ItemsSource="{Binding Trudnosci}" SelectedItem="{Binding Recipe.Trudnosc}"/>
 
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Składniki:" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Grid.Row="4" Grid.Column="1" x:Name="SkladnikiBox" Margin="5" Height="80" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Height="80" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Recipe.Skladniki, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Instrukcje:" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Grid.Row="5" Grid.Column="1" x:Name="InstrukcjeBox" Margin="5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Recipe.Instrukcje, UpdateSourceTrigger=PropertyChanged}"/>
 
         <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
             <Button Content="Zapisz" Click="Zapisz_Click" Width="80" Margin="5"/>

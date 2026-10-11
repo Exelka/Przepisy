@@ -1,32 +1,42 @@
+using System;
 using System.Windows;
 using Przepisy.Models;
+using Przepisy.ViewModels;
 
 namespace Przepisy.Views
 {
     public partial class RecipeEditWindow : Window
     {
         public Recipe Recipe { get; private set; }
-        private bool _isEdit;
 
         public RecipeEditWindow(Recipe recipe = null)
         {
             InitializeComponent();
-            _isEdit = recipe != null;
-            Recipe = recipe ?? new Recipe { Id = new System.Random().Next(10000) };
 
-            NazwaBox.Text = Recipe.Nazwa;
-            KategoriaBox.Text = Recipe.Kategoria;
-            CzasBox.Text = Recipe.CzasPrzygotowania.ToString();
-            TrudnoscBox.Text = Recipe.Trudnosc;
-            SkladnikiBox.Text = Recipe.Skladniki;
-            InstrukcjeBox.Text = Recipe.Instrukcje;
+            Recipe = recipe == null ? new Recipe { Id = new Random().Next(10000) } : Copy(recipe);
+            DataContext = new RecipeEditViewModel(Recipe);
+            CzasBox.Text = Recipe.CzasPrzygotowania == 0 ? "" : Recipe.CzasPrzygotowania.ToString();
 
-            Title = _isEdit ? "Edytuj przepis" : "Dodaj przepis";
+            Title = recipe == null ? "Dodaj przepis" : "Edytuj przepis";
+        }
+
+        private static Recipe Copy(Recipe recipe)
+        {
+            return new Recipe
+            {
+                Id = recipe.Id,
+                Nazwa = recipe.Nazwa,
+                Kategoria = recipe.Kategoria,
+                CzasPrzygotowania = recipe.CzasPrzygotowania,
+                Trudnosc = recipe.Trudnosc,
+                Skladniki = recipe.Skladniki,
+                Instrukcje = recipe.Instrukcje
+            };
         }
 
         private void Zapisz_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NazwaBox.Text) || string.IsNullOrWhiteSpace(SkladnikiBox.Text))
+            if (string.IsNullOrWhiteSpace(Recipe.Nazwa) || string.IsNullOrWhiteSpace(Recipe.Skladniki))
             {
                 MessageBox.Show("Nazwa i składniki są wymagane!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -38,13 +48,7 @@ namespace Przepisy.Views
                 return;
             }
 
-            Recipe.Nazwa = NazwaBox.Text;
-            Recipe.Kategoria = KategoriaBox.Text;
             Recipe.CzasPrzygotowania = czas;
-            Recipe.Trudnosc = TrudnoscBox.Text;
-            Recipe.Skladniki = SkladnikiBox.Text;
-            Recipe.Instrukcje = InstrukcjeBox.Text;
-
             DialogResult = true;
         }
 
